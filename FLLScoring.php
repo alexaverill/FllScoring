@@ -1,4 +1,5 @@
 <html>
+<link rel="stylesheet" href="stylesheet.css" type="css"/>
 <script type="text/javascript">
 	/*
 	if(document.getElementById("clouds").checked && !scoresContain("clouds")){
@@ -173,49 +174,60 @@ function calculateScore(){
 
 </script>
 <body>
-Time: Score:<div id="score"></div>
-<ul>
-<li>Tasks: 
-<li>Opening Door:<input type="checkbox" name="doors" id="doors"/> </li> <!---->
-<li>Cloud ACcess <input type="checkbox" name="clouds" id="clouds"/></li><!---->
-<li>Community Learning  <input type="checkbox" name="community" id="community"/></li><!---->
-<li>Robotics COmpetition  <select name="robotComp" id="robotComp"><option>
-						</option><option value="25">Insert</option>
-						<option value="55">Insert and loop</option>
-						</select></li><!---->
-<li>using the right senses <input type="checkbox" name="senses" id="senses"/></li><!---->
-<li>thinking outside the box <select name="outabox" id="outabox"><option></option>
-							<option value="25">Bulb Down</option>
-							<option value="40">Bulb Up</option>
-							</select></li><!---->
-<li>Remote communications  <input type="checkbox" name="remote" id="remote"/> </li><!---->
-<li>Search Engine <select name="searchEngine" id="searchEngine"><option></option>
-					<option value="15">Slider</option>
-					<option value="60">Slider and Loop</option>
-					</select></li><!---->
-<li>Sports <select name="sports" id="sports"><option></option>
-					<option value="30">Took a Shot</option>
-					<option value="60">Shot and Goal</option>
-					</select></li><!---->
-<li>Reverse Engineering <select name="reverse" id="reverse"><option></option>
-							<option value="30">Basket</option>
-							<option value="45">Basket and Model</option>
-							</select></li><!---->
-<li>Adapting to changing conditions <input type="checkbox" name="changing" id="changing"/> </li><!---->
-<li>Apprenticeship<select name="apprenticeship" id="apprenticeship"><option></option>
-								<option value="20">Model</option>
-								<option value="35">Touching Circle</option>
-								</select> </li>
-<li>Engagement Number of Rotations<select name="engage"><option></option>
-<option value="engaged">Engagement</option>
-<!--<?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>-->
-</select></li>
-<li>Project Based Learning <select name="pbl" id="pbl"><option></option>
-<!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
-</select></li>
-<li>penalty points </li><select name="penalty" id="penalty"><option></option>
-<!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
-</select></li>
-</ul>
+    <div id="headerBar">
+                <div id="timer"><h3>Time: 2:00</h3></div>
+        <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
+    </div>
+    <div id="mainContent">
+        <div id="title">
+            <h3>Tasks:</h3>
+        </div>
+            <div id ="tasklist">
+                    <ul>
+
+                    <li>Opening Door:<input type="checkbox" name="doors" id="doors"/> </li> <!---->
+                    <li>Cloud Access <input type="checkbox" name="clouds" id="clouds"/></li><!---->
+                    <li>Community Learning  <input type="checkbox" name="community" id="community"/></li><!---->
+                    <li>Robotics Competition  <select name="robotComp" id="robotComp"><option>
+                                            </option><option value="25">Insert</option>
+                                            <option value="55">Insert and loop</option>
+                                            </select></li><!---->
+                    <li>Using the Right Senses <input type="checkbox" name="senses" id="senses"/></li><!---->
+                    <li>Thinking Outside the Box <select name="outabox" id="outabox"><option></option>
+                                                <option value="25">Bulb Down</option>
+                                                <option value="40">Bulb Up</option>
+                                                </select></li><!---->
+                    <li>Remote Communications  <input type="checkbox" name="remote" id="remote"/> </li><!---->
+                    <li>Search Engine <select name="searchEngine" id="searchEngine"><option></option>
+                                        <option value="15">Slider</option>
+                                        <option value="60">Slider and Loop</option>
+                                        </select></li><!---->
+                    <li>Sports <select name="sports" id="sports"><option></option>
+                                        <option value="30">Took a Shot</option>
+                                        <option value="60">Shot and Goal</option>
+                                        </select></li><!---->
+                    <li>Reverse Engineering <select name="reverse" id="reverse"><option></option>
+                                                <option value="30">Basket</option>
+                                                <option value="45">Basket and Model</option>
+                                                </select></li><!---->
+                    <li>Adapting to Changing Conditions <input type="checkbox" name="changing" id="changing"/> </li><!---->
+                    <li>Apprenticeship<select name="apprenticeship" id="apprenticeship"><option></option>
+                                                    <option value="20">Model</option>
+                                                    <option value="35">Touching Circle</option>
+                                                    </select> </li>
+                    <li>Engagement Number of Rotations<select name="engage"><option></option>
+                    <option value="engaged">Engagement</option>
+                    <!--<?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    </select></li>
+                    <li>Project Based Learning <select name="pbl" id="pbl"><option></option>
+                    <!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    </select></li>
+                    <li>Penalty Points<select name="penalty" id="penalty"><option></option>
+                    <!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    </select></li>
+                        <li><button onclick="save()">Save Scores</button></li>
+                    </ul>
+                </div>
+        </div>
 </body>
 </html>
