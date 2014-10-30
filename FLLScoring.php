@@ -70,11 +70,13 @@ function calculateScore(){
 		["reverse",["basket","model"],30,45],
 		["apprenticeship",["legoModel","incircle"],20,35]
 	];
-	console.log(multiCheckArray);
+	
 	var multiLength = multiCheckArray.length;
 	for(var z = 0; z<multiLength; z++){
 		if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][2] &&  !scoresContain(multiCheckArray[z][1][0])){ //insert
 			if (scoresContain(multiCheckArray[z][1][1])) {
+				place = returnIndex(multiCheckArray[z][1][1]);
+				completed_array.splice(place);
 				score -= multiCheckArray[z][3];
 			}
 			score +=multiCheckArray[z][2];
@@ -110,6 +112,7 @@ function calculateScore(){
 		score +=20;
 		completed_array.push("engaged");
 	}
+	console.log(completed_array);
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
 $(document).on("change",'.score', function() {
@@ -141,7 +144,7 @@ $(document).on("change",'.score', function() {
                                                 <option value="40">Bulb Up</option>
                                                 </select></li><!---->
                     <li>Remote Communications  <input type="checkbox" class="score" name="remote" id="remote"/> </li><!---->
-                    <li>Search Engine <select name="searchEngine" id="searchEngine"><option value="-1"></option>
+                    <li>Search Engine <select name="searchEngine" class="score" id="searchEngine"><option value="-1"></option>
                                         <option value="15">Slider</option>
                                         <option value="60">Slider and Loop</option>
                                         </select></li><!---->
