@@ -25,6 +25,26 @@ var completed_array = [];
 var number_rotations =0;
 var number_penalties = 0;
 var penaltiesCounted = 0;
+var time = 120; //time in seconds;
+var interval;
+function timer(){
+	time  -= 1;
+	var timeDisplayMinutes = Math.floor(time /60);
+	var timeDisplaySeconds = time - timeDisplayMinutes * 60 ;
+	document.getElementById("time").innerHTML = timeDisplayMinutes+":"+timeDisplaySeconds;
+	if (timeDisplaySeconds <=0 && timeDisplayMinutes<=0) {
+		clearInterval(interval);
+		document.getElementById("time").innerHTML = "0:00";
+	}
+}
+function callTimer() {
+	interval = setInterval(timer, 1000);
+}
+function resetTimer(){
+	clearInterval(interval);
+	time = 120;
+	document.getElementById("time").innerHTML ="2:00";
+}
 function scoresContain(input){
 	if(completed_array.indexOf(input)>=0){
 		return true;
@@ -121,7 +141,7 @@ $(document).on("change",'.score', function() {
 </script>
 <body>
     <div id="headerBar">
-        <div id="timer"><h3>Time: 2:00</h3></div>
+        <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button><button onclick="resetTimer();">Reset Time</button></h3></div>
         <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
     </div>
     <div id="mainContent">

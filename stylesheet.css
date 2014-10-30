@@ -23,6 +23,15 @@ body{
 #timer{
     float:left;   
 }
+#timer > h3{
+    display:inline-flex;
+    padding-left:20px;
+}
+#timer > h3 > span{
+    
+    padding-left:20px;
+    padding-right:20px;
+}
 #scoreContainer{
     float:right; 
     padding-right:10%;
