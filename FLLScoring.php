@@ -217,13 +217,13 @@ function calculateScore(){
                                                     </select> </li>
                     <li>Engagement Number of Rotations<select name="engage"><option></option>
                     <option value="engaged">Engagement</option>
-                    <!--<?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    <?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>
                     </select></li>
                     <li>Project Based Learning <select name="pbl" id="pbl"><option></option>
-                    <!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
                     </select></li>
                     <li>Penalty Points<select name="penalty" id="penalty"><option></option>
-                    <!--<?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>-->
+                    <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
                     </select></li>
                         <li><button onclick="save()">Save Scores</button></li>
                     </ul>
