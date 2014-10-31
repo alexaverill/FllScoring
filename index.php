@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet" href="stylesheet.css" type="css"/>
+<link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 // scoring information:
