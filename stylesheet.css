@@ -55,3 +55,27 @@ select{
     size: 100px;
     float:right;
 }
+
+table       { font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+ font-size: 12px;text-align:center;
+/*width: 480px;*/
+
+border-collapse: collapse;
+ padding-left: 10px; padding: 0px 0px 10px 10px;}
+th          { font-weight: bold; }
+thead th    { background: #c3d9ff; }
+th,td,caption { padding: 10px; }
+/*
+	You can zebra-stripe your tables in outdated browsers by adding 
+	the class "even" to every other table row. */
+ 
+tbody tr:nth-child(even) td, 
+tbody tr.even td  { 
+	background: #E8EDFF; 
+	width:75px;
+}
+ tr.even:hover  { 
+	background-color: #ccc; 
+}
+tfoot       { font-style: italic; }
+caption     { background: #eee; }
