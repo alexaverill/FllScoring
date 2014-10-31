@@ -1,11 +1,40 @@
 <head>
+    <link rel="stylesheet" href="stylesheet.css" type="css"/>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
     <script type="text/javascript">
+	var taskArray = [
+	  ["insert","Key Inserted"],
+	  ["inandloop","Key Inserted,Loop Gotten"],
+	  ["bulbdown","Bulb Face Down"],
+	  ["bulbup","Bulb Face Up"],
+	  ["slider","Slider Pushed"],
+	  ["sliderloop","Slider Pushed, Correct Loop Taken"],
+	  ["shot","Shot Taken"],
+	  ["goal","Goal Scored"],
+	  ["basket","Basket Gotten"],
+	  ["model","Model Assembled"],
+	  ["legoModel","Has a lego model"],
+	  ["incircle","Model Placed in Circle"]
+	];
+	function determineSelect(input) {
+	    for(var x = 0; x<taskArray.length;x++){
+		if (taskArray[x][0] == input) {
+		    return x;
+		}
+	    }
+	    return -1;
+	}
 	var completed_array = [];
 	{% for comp in completed %}
 	    completed_array.push("{{comp}}");
 	{%endfor%}	
 	for(var x = 0; x<completed_array.length;x++){
-	    document.getElementById(completed_array[x]).value= "Task Completed";   
+	    taskLocation = determineSelect(completed_array[x])
+	    if ( taskLocation > 0 {
+		document.getElementById(completed_array[x]).innerHTML = taskArray[taskLocation][1];
+	    }else{
+		document.getElementById(completed_array[x]).innerHTML = "Task Completed";
+	    }
 	}
     </script>    
 </head>
@@ -27,43 +56,18 @@
                     <li>Opening Door:<div id="doors"/></div> </li> <!---->
                     <li>Cloud Access <div id="clouds"/></div></li><!---->
                     <li>Community Learning  <div id="community"/></div></li><!---->
-                    <li>Robotics Competition  <select name="robotComp" class="score" id="robotComp"><option value="-1">
-                                            </option><option value="25">Insert</option>
-                                            <option value="55">Insert and loop</option>
-                                            </select></li><!---->
+                    <li>Robotics Competition  <div id="robotComp"></div></li>
                     <li>Using the Right Senses <div id="senses"/></div></li><!---->
-                    <li>Thinking Outside the Box <select name="outabox" class="score" id="outabox"><option value="-1"></option>
-                                                <option value="25">Bulb Down</option>
-                                                <option value="40">Bulb Up</option>
-                                                </select></li><!---->
+                    <li>Thinking Outside the Box <div id="outabox"></div></li><!---->
                     <li>Remote Communications  <div id="remote"/> </div></li><!---->
-                    <li>Search Engine <select name="searchEngine" class="score" id="searchEngine"><option value="-1"></option>
-                                        <option value="15">Slider</option>
-                                        <option value="60">Slider and Loop</option>
-                                        </select></li><!---->
-                    <li>Sports <select name="sports" class="score" id="sports"><option value="-1"></option>
-                                        <option value="30">Took a Shot</option>
-                                        <option value="60">Shot and Goal</option>
-                                        </select></li><!---->
-                    <li>Reverse Engineering <select name="reverse" class="score" id="reverse"><option value="-1"></option>
-                                                <option value="30">Basket</option>
-                                                <option value="45">Basket and Model</option>
-                                                </select></li><!---->
+                    <li>Search Engine <div id="searchEngine"></div></li><!---->
+                    <li>Sports <div id="sports"></div></li><!---->
+                    <li>Reverse Engineering <div id="reverse"></div></li><!---->
                     <li>Adapting to Changing Conditions <div id="changing"/></div> </li><!---->
-                    <li>Apprenticeship<select name="apprenticeship" class="score" id="apprenticeship"><option value="-1"></option>
-                                                    <option value="20">Model</option>
-                                                    <option value="35">Touching Circle</option>
-                                                    </select> </li>
-                    <li>Engagement Number of Rotations<select name="engage" class="score" id="engage"><option value="-1"></option>
-                    <option value="engaged">Engagement</option>
-                    <?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>
-                    </select></li>
-                    <li>Project Based Learning <select name="pbl" class="score" id="pbl"><option value="-1"></option>
-                    <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
-                    </select></li>
-                    <li>Penalty Points<select name="penalty" class="score" id="penalty"><option value="-1"></option>
-                    <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
-                    </select></li>
+                    <li>Apprenticeship<select name="apprenticeship" class="score" id="apprenticeship">< </li>
+                    <li>Engagement Number of Rotations<div id="engage"></div></select>></li>
+                    <li>Project Based Learning <div id="pbl"></div></li>
+                    <li>Penalty Points<div id="penalty"><option value="-1"></div></li>
                         <li><button onclick="save()">Save Scores</button></li>
                     </ul>
                 </div>
