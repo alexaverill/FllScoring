@@ -29,7 +29,7 @@
 	    completed_array.push("{{comp}}");
 	{%endfor%}	
 	for(var x = 0; x<completed_array.length;x++){
-	    console.log(completed_array);
+	    console.log(completed_array[x];
 	    taskLocation = determineSelect(completed_array[x]);
 	    console.log(taskLocation);
 	    if ( taskLocation > 0 ) {
@@ -66,10 +66,10 @@
                     <li>Sports <div id="sports"></div></li><!---->
                     <li>Reverse Engineering <div id="reverse"></div></li><!---->
                     <li>Adapting to Changing Conditions <div id="changing"/></div> </li><!---->
-                    <li>Apprenticeship<select name="apprenticeship" class="score" id="apprenticeship">< </li>
+                    <li>Apprenticeship<div id="apprenticeship"></div> </li>
                     <li>Engagement Number of Rotations<div id="engage"></div></select>></li>
                     <li>Project Based Learning <div id="pbl"></div></li>
-                    <li>Penalty Points<div id="penalty"><option value="-1"></div></li>
+                    <li>Penalty Points<div id="penalty"></div></li>
                         <li><button onclick="save()">Save Scores</button></li>
                     </ul>
                 </div>
