@@ -41,7 +41,7 @@ function callTimer() {
 	interval = setInterval(timer, 1000);
 }
 function resetTimer(){
-	clearInterval(interval);
+	interval = clearInterval(interval);
 	time = 120;
 	document.getElementById("time").innerHTML ="2:00";
 }
@@ -141,7 +141,8 @@ $(document).on("change",'.score', function() {
 </script>
 <body>
     <div id="headerBar">
-        <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button><button onclick="resetTimer();">Reset Time</button></h3></div>
+        <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button>
+	<button onclick="resetTimer();">Reset Time</button></h3></div>
         <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
     </div>
     <div id="mainContent">
