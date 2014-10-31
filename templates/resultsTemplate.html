@@ -14,7 +14,9 @@
 	  ["basket","Basket Gotten","reverse"],
 	  ["model","Model Assembled","reverse"],
 	  ["legoModel","Has a lego model","apprenticeship"],
-	  ["incircle","Model Placed in Circle","apprenticeship"]
+	  ["incircle","Model Placed in Circle","apprenticeship"],
+	  ["engaged","","engage"],
+	  ["pbl","","pbl"]
 	];
 	function determineSelect(input) {
 	    for(var x = 0; x<taskArray.length;x++){
@@ -43,7 +45,7 @@
             <h3>Tasks:</h3>
         </div>
             <div id ="tasklist">
-		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/></div>
+		<div id="teamName"><h3>Team Name: {{teamName}}</h3></div>
                     <ul>
 
                     <li>Opening Door:<div id="doors"/></div> </li> <!---->
@@ -58,9 +60,9 @@
                     <li>Reverse Engineering <div id="reverse"></div></li><!---->
                     <li>Adapting to Changing Conditions <div id="changing"/></div> </li><!---->
                     <li>Apprenticeship<div id="apprenticeship"></div> </li>
-                    <li>Engagement Number of Rotations<div id="engage"></div></select>></li>
-                    <li>Project Based Learning <div id="pbl"></div></li>
-                    <li>Penalty Points<div id="penalty"></div></li>
+                    <li>Engagement Number of Rotations<div id="engage"></div><span>{{rotations}}</span></li>
+                    <li>Project Based Learning <div id="pbl"></div>{{loops}}</li>
+                    <li>Penalty Points<div id="penalty"></div>{{penalties}}</li>
                         <li><button onclick="save()">Save Scores</button></li>
                     </ul>
                 </div>
