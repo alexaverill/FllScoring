@@ -31,11 +31,12 @@
 	for(var x = 0; x<completed_array.length;x++){
 	    console.log(completed_array[x]);
 	    taskLocation = determineSelect(completed_array[x]);
+	    var stringId = completed_array[x];
 	    console.log(taskLocation);
 	    if ( taskLocation > 0 ) {
-		document.getElementById(completed_array[x]).innerHTML = taskArray[taskLocation][1];
+		document.getElementById(stringId).innerHTML = taskArray[taskLocation][1];
 	    }else{
-		document.getElementById(completed_array[x]).innerHTML = "Task Completed";
+		document.getElementById(stringId).innerHTML = "Task Completed";
 	    }
 	}
     </script>    
