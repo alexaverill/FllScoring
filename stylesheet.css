@@ -51,6 +51,12 @@ ul >li > input[type=checkbox]{
     size: 100px;
     float:right;
 }
+ul >li > div{
+    float:right;
+}
+ul >li > span{
+    float:right;
+}
 select{
     size: 100px;
     float:right;
