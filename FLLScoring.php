@@ -135,9 +135,19 @@ function calculateScore(){
 	}else if (document.getElementById("engage").value >=0) {
 		number_rotations = document.getElementById("engage").value;
 	}
-	if (document.getElementById("penalty").value>0) {
-		number_penalties = document.getElementById("penalty").value;
-		score -=(10*number_penalties);
+	if (document.getElementById("penalty").value>=0) {
+			
+			numberDifference = (document.getElementById("penalty").value - penaltiesCounted);
+			console.log(numberDifference);
+			if ( numberDifference >0 ) {
+				score -= 10 * numberDifference;
+				penaltiesCounted = document.getElementById("penalty").value;
+			}else if (numberDifference < 0) {
+				score += 10 * Math.abs(numberDifference);
+				penaltiesCounted = document.getElementById("penalty").value;
+			}
+		
+		
 	}
 	console.log(number_rotations);
 	document.getElementById("score").innerHTML = score +"/"+max_score;
