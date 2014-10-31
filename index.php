@@ -227,7 +227,8 @@ function save(){
 	 $.ajax({
 		type: "POST",
 		url: "save.php",
-		data: { teamName:name , score: score, tasksDone: completedString,totalNumber:totalNumber,numPenalties:number_penalties,numRotations:number_rotations }
+		data: { teamName:name , score: score, tasksDone: completedString,totalNumber:totalNumber,
+		numPenalties:number_penalties,numRotations:number_rotations, numberLoops: loopsCounted }
 		});
 	 alert("Team Data Saved, and Submitted!")
 }
