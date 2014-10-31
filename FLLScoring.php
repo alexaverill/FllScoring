@@ -19,28 +19,30 @@
 	project based learning // 20 for first loop +=10 for every loop after
 	penalty points 
 	*/
-var max_score = 857;
+var max_score = 857; 
 var score = 0;
-var completed_array = [];
-var number_rotations =0;
-var number_penalties = 0;
+var completed_array = []; //array to hold completed tasks
+var number_rotations =0; //number of rotations for the engagedment task
+var number_penalties = 0; 
 var penaltiesCounted = 0;
-var numberLoops = 0;
+var numberLoops = 0;	//Project based learning	
 var numberLoopsCounted = 0;
 var time = 120; //time in seconds;
 var interval;
 function timer(){
-	time  -= 1;
-	var timeDisplayMinutes = Math.floor(time /60);
-	var timeDisplaySeconds = time - timeDisplayMinutes * 60 ;
-	document.getElementById("time").innerHTML = timeDisplayMinutes+":"+timeDisplaySeconds;
+	time  -= 1; //remove a second
+	var timeDisplayMinutes = Math.floor(time /60); //determine minutes 
+	var timeDisplaySeconds = time - (timeDisplayMinutes * 60) ; //determine seconds parenthesis are for readability
+	document.getElementById("time").innerHTML = timeDisplayMinutes+":"+timeDisplaySeconds; //update the visual timer.
 	if (timeDisplaySeconds <=0 && timeDisplayMinutes<=0) {
+		//stop timer when it equals 0;
 		interval = clearInterval(interval);
-		alert("Time Over!");
+		alert("Time Over!"); 
 		document.getElementById("time").innerHTML = "0:00";
 	}
 }
 function callTimer() {
+	//function to start the timer, setInterval calles the countdown function every 1000 milliseconds or 1 second
 	interval = setInterval(timer, 1000);
 }
 function resetTimer(){
@@ -49,6 +51,7 @@ function resetTimer(){
 	document.getElementById("time").innerHTML ="2:00";
 }
 function scoresContain(input){
+	//determine if a task has been completed/ is in the completed array.
 	if(completed_array.indexOf(input)>=0){
 		return true;
 	}else{
@@ -96,53 +99,75 @@ function calculateScore(){
 	
 	var multiLength = multiCheckArray.length;
 	for(var z = 0; z<multiLength; z++){
-		if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][2] &&  !scoresContain(multiCheckArray[z][1][0])){ //insert
-			if (scoresContain(multiCheckArray[z][1][1])) {
-				place = returnIndex(multiCheckArray[z][1][1]);
-				completed_array.splice(place);
-				score -= multiCheckArray[z][3];
+		//define some human readable names.
+		var selectOption = document.getElementById(multiCheckArray[z][0]).value; //value of the select option
+		var scoreOne = multiCheckArray[z][2];	//fist score value
+		var nameOne = multiCheckArray[z][1][0];   //name for completed array;
+		var scoreTwo = multiCheckArray[z][3]; //second score value
+		var nameTwo = multiCheckArray[z][1][1]; //name for completed task
+		if(selectOption == scoreOne &&  !scoresContain(nameOne)){
+			//if the selected value is the first score option, and the first score option hasnt already been input
+			if (scoresContain( nameTwo )) {
+				//if name two was selected earlier we need to fix the score so we dont get too high
+				place = returnIndex( nameTwo );
+				completed_array.splice(place); //remove the name from the completed array so we can keep track of the selected
+				score -= scoreTwo; //fix score
 			}
-			score +=multiCheckArray[z][2];
-			//console.log(multiCheckArray[z][1][0]);
-			completed_array.push(multiCheckArray[z][1][0]);
-		}else if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][3] && !scoresContain(multiCheckArray[z][1][0])){ //just insert and loop has been selected 
-			if (!scoresContain(multiCheckArray[z][1][1])) {
-				score += multiCheckArray[z][3];
-				completed_array.push(multiCheckArray[z][1][1]);
+			score +=scoreOne;
+			completed_array.push( nameOne );
+		}else if(selectOption == scoreTwo && !scoresContain( nameOne )){
+			//if the second option is selected first.
+			if (!scoresContain( nameTwo )) {
+				//and if the second option isn't already in the completed array;
+				score += scoreTwo;
+				completed_array.push( nameTwo );
 			}
 			
-		}else if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][3] && scoresContain(multiCheckArray[z][1][0])){ //insert and loop has been selected after insert has been selected
-			//remove the insert score 
-			score -= multiCheckArray[z][2];
-			place = returnIndex(multiCheckArray[z][1][0]);
-			completed_array.splice(place);
-			//add back the score for the insert and loop falling
-			score += multiCheckArray[z][3];
+		}else if( selectOption == scoreTwo && scoresContain( nameOne )){
+			//if the first select option was picked first, and now we change to the second select option
+			score -= scoreOne; //remove score one
+			
+			place = returnIndex( nameOne );
+			completed_array.splice(place); //remove name one from completed_array[]
+			//add score two
+			score += scoreTwo;
 			completed_array.push(multiCheckArray[z][1][1]);
-		}else if (document.getElementById(multiCheckArray[z][0]).value==-1 ){
-			if (scoresContain(multiCheckArray[z][1][0])) {
-				place = returnIndex(multiCheckArray[z][1][0]);
+		}else if (selectOption == -1 ){
+			//if the select is returned to the empty option
+			if (scoresContain( nameOne )) {
+				place = returnIndex( nameOne);
 				completed_array.splice(place);
-				score -= multiCheckArray[z][2];
-			}else if (scoresContain(multiCheckArray[z][1][1])){
-				place = returnIndex(multiCheckArray[z][1][1]);
+				score -= scoreOne;
+			}else if (scoresContain( nameTwo )){
+				place = returnIndex( nameTwo );
 				completed_array.splice(place);
-				score -= multiCheckArray[z][3];
+				score -= scoreTwo;
 			}
 		}
-		console.log(completed_array);
 	}
 	
-	
+	//engaged tasks
 	if(document.getElementById("engage").value == "engaged" && !scoresContain("engaged")){
 		//insert base score of 20 for rotation, then will run a check to determine the number of future rotations
 		score +=20;
 		completed_array.push("engaged");
 	}else if (document.getElementById("engage").value >=0) {
+		if (!scoresContain("engaged")) {
+			//if engaged wasn't selected in the select, but the number of rotations has changed we will need to add an engaged score
+			score +=20
+			completed_array.push("engaged");	
+		}
+		//since not calculated until final save it does not have to be input into score.
 		number_rotations = document.getElementById("engage").value;
+	}else if (document.getElementById("engage").value ==-1) {
+		if (scoresContain("engaged")) {
+			//engaged was selected
+			score -=20;
+		}
+		number_rotations = 0;
 	}
 	if (document.getElementById("penalty").value>=0) {
-			
+			//calculate number of penalty points
 			numberDifference = (document.getElementById("penalty").value - penaltiesCounted);
 			console.log(numberDifference);
 			if ( numberDifference >0 ) {
