@@ -13,7 +13,7 @@
 	    <tr><th>Team Name</th><th>Score</th><th>Tasks Completed</th></tr>
 	    {%for team in teamList %}
 	    <tr><td><a href="results.php?id={{team.id}}">{{team.teamName}}</a></td>
-		<td>{{team.score}}</td><td>{{team.tasksCompleted}}</td></tr>
+		<td>{{team.score}}</td><td>{{team.totalTasks}}</td></tr>
 	    {%endfor%}
 	    
 	    
