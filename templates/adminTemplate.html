@@ -14,7 +14,7 @@
 	<h2>Results:</h2>
 	<table>
 	    <tr><th>Team Name</th><th>Score</th><th>Tasks Completed</th></tr>
-	    {%for team in TeamList %}
+	    {%for team in teamList %}
 	    <tr><td>{{team.teamName}}</td><td>{{team.score}}</td><td>{{team.tasksCompleted}}</td></tr>
 	    {%endfor%}
 	    
