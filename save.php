@@ -11,7 +11,7 @@ $completed = $_POST['tasksDone'];
 $numberPen = $_POST['numPenalties'];
 $numberRot = $_POST['numRotations'];
 $numberTasks = $_POST['totalNumber'];
-$loops = $_POST['numberLoops']
+$loops = $_POST['numberLoops'];
 $sql = "SELECT * FROM scoring WHERE teamName=?";
 $check = $dbh->prepare($sql);
 $check->execute(array($teamName));
