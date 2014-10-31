@@ -33,7 +33,8 @@ function timer(){
 	var timeDisplaySeconds = time - timeDisplayMinutes * 60 ;
 	document.getElementById("time").innerHTML = timeDisplayMinutes+":"+timeDisplaySeconds;
 	if (timeDisplaySeconds <=0 && timeDisplayMinutes<=0) {
-		clearInterval(interval);
+		interval = clearInterval(interval);
+		alert("Time Over!");
 		document.getElementById("time").innerHTML = "0:00";
 	}
 }
@@ -131,9 +132,25 @@ function calculateScore(){
 		//insert base score of 20 for rotation, then will run a check to determine the number of future rotations
 		score +=20;
 		completed_array.push("engaged");
+	}else if (document.getElementById("engage").value >=0) {
+		number_rotations = document.getElementById("engage").value;
 	}
-	console.log(completed_array);
+	if (document.getElementById("penalty").value>0) {
+		number_penalties = document.getElementById("penalty").value;
+		score -=(10*number_penalties);
+	}
+	console.log(number_rotations);
 	document.getElementById("score").innerHTML = score +"/"+max_score;
+}
+function save(){
+	var name=document.getElementById("teamNameIn").value;
+	if (scoresContain("engaged")) {
+		if (number_rotations>0) {
+			tempScore = score - 20;
+			percentBack = tempscore * (number_rotations*.01);
+			score += percentBack;
+		}
+	}
 }
 $(document).on("change",'.score', function() {
 		calculateScore();
@@ -143,6 +160,7 @@ $(document).on("change",'.score', function() {
     <div id="headerBar">
         <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button>
 	<button onclick="resetTimer();">Reset Time</button></h3></div>
+	
         <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
     </div>
     <div id="mainContent">
@@ -150,6 +168,7 @@ $(document).on("change",'.score', function() {
             <h3>Tasks:</h3>
         </div>
             <div id ="tasklist">
+		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/></div>
                     <ul>
 
                     <li>Opening Door:<input type="checkbox" class="score" name="doors" id="doors"/> </li> <!---->
