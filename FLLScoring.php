@@ -103,7 +103,7 @@ function calculateScore(){
 				score -= multiCheckArray[z][3];
 			}
 			score +=multiCheckArray[z][2];
-			console.log(multiCheckArray[z][1][0]);
+			//console.log(multiCheckArray[z][1][0]);
 			completed_array.push(multiCheckArray[z][1][0]);
 		}else if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][3] && !scoresContain(multiCheckArray[z][1][0])){ //just insert and loop has been selected 
 			score += multiCheckArray[z][3];
@@ -158,7 +158,7 @@ function save(){
 	if (scoresContain("engaged")) {
 		if (number_rotations>0) {
 			tempScore = score - 20;
-			percentBack = tempscore * (number_rotations*.01);
+			percentBack = tempScore * (number_rotations*.01);
 			score += percentBack;
 		}
 	}
@@ -167,6 +167,7 @@ function save(){
 		url: "save.php",
 		data: { teamName:name , score: score, tasksDone:completed_array }
 		});
+	 
 }
 $(document).on("change",'.score', function() {
 		calculateScore();
