@@ -200,10 +200,11 @@ function save(){
 			score += percentBack;
 		}
 	}
+	completedString = JSON.stringify(completed_array);
 	 $.ajax({
 		type: "POST",
 		url: "save.php",
-		data: { teamName:name , score: score, tasksDone:completed_array }
+		data: { teamName:name , score: score, tasksDone: completedString }
 		});
 	 alert("Team Data Saved, and Submitted!")
 }
