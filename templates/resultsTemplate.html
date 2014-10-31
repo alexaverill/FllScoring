@@ -72,7 +72,7 @@
 	    taskLocation = determineSelect(completed_array[x]);
 	    var stringId = completed_array[x];
 	    console.log(taskLocation);
-	    if ( taskLocation > 0 ) {
+	    if ( taskLocation >= 0 ) {
 		document.getElementById(taskArray[taskLocation][2]).innerHTML = taskArray[taskLocation][1];
 	    }else{
 		document.getElementById(stringId).innerHTML = "Task Completed";
