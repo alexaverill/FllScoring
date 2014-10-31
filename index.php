@@ -26,7 +26,7 @@ var number_rotations =0; //number of rotations for the engagedment task
 var number_penalties = 0; 
 var penaltiesCounted = 0;
 var numberLoops = 0;	//Project based learning	
-var numberLoopsCounted = 0;
+var loopsCounted = 0;
 var time = 120; //time in seconds;
 var interval;
 function timer(){
@@ -181,18 +181,33 @@ function calculateScore(){
 		
 		
 	}
-	/**************TODO*********************************
-	 *
-	 *	Project Based Learning!
-	 *
-	 *
-	 *
-	 *
-	 */
+	if (document.getElementById("pbl").value>=0) {
+			//calculate number of penalty points
+			numberDifference = (document.getElementById("pbl").value - loopsCounted);
+			console.log(numberDifference);
+			if ( numberDifference >0 ) {
+				score -= 10 * numberDifference;
+				score -=10;
+				loopsCounted = document.getElementById("pbl").value;
+			}else if (numberDifference < 0) {
+				score += 10 * Math.abs(numberDifference);
+				if (!scoreContain("pbl")) {
+					score+=10;
+					completed_array.push("pbl");
+				}
+				loopsCounted = document.getElementById("pbl").value;
+			}
+		
+		
+	}
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
 function save(){
 	var name=document.getElementById("teamNameIn").value;
+	if (name == "") {
+		alert("Please Enter a Team Name!");
+		return;
+	}
 	if (scoresContain("engaged")) {
 		if (number_rotations>0) {
 			tempScore = score - 20;
@@ -205,7 +220,7 @@ function save(){
 	 $.ajax({
 		type: "POST",
 		url: "save.php",
-		data: { teamName:name , score: score, tasksDone: completedString,totalNumber:totalNumber }
+		data: { teamName:name , score: score, tasksDone: completedString,totalNumber:totalNumber,numPenalties:number_penalties,numRotations:number_rotations }
 		});
 	 alert("Team Data Saved, and Submitted!")
 }

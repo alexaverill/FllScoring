@@ -2,9 +2,11 @@
     <script type="text/javascript">
 	var completed_array = [];
 	{% for comp in completed %}
-	    completed_array += "{{comp}}";
+	    completed_array.push("{{comp}}");
 	{%endfor%}	
-	
+	for(var x = 0; x<completed_array.length;x++){
+	    document.getElementById(completed_array[x]).value= "Task Completed";   
+	}
     </script>    
 </head>
 <body>
@@ -22,19 +24,19 @@
 		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/></div>
                     <ul>
 
-                    <li>Opening Door:<input type="checkbox" class="score" name="doors" id="doors"/> </li> <!---->
-                    <li>Cloud Access <input type="checkbox" class="score" name="clouds" id="clouds"/></li><!---->
-                    <li>Community Learning  <input type="checkbox" class="score" name="community" id="community"/></li><!---->
+                    <li>Opening Door:<div id="doors"/></div> </li> <!---->
+                    <li>Cloud Access <div id="clouds"/></div></li><!---->
+                    <li>Community Learning  <div id="community"/></div></li><!---->
                     <li>Robotics Competition  <select name="robotComp" class="score" id="robotComp"><option value="-1">
                                             </option><option value="25">Insert</option>
                                             <option value="55">Insert and loop</option>
                                             </select></li><!---->
-                    <li>Using the Right Senses <input type="checkbox" class="score" name="senses" id="senses"/></li><!---->
+                    <li>Using the Right Senses <div id="senses"/></div></li><!---->
                     <li>Thinking Outside the Box <select name="outabox" class="score" id="outabox"><option value="-1"></option>
                                                 <option value="25">Bulb Down</option>
                                                 <option value="40">Bulb Up</option>
                                                 </select></li><!---->
-                    <li>Remote Communications  <input type="checkbox" class="score" name="remote" id="remote"/> </li><!---->
+                    <li>Remote Communications  <div id="remote"/> </div></li><!---->
                     <li>Search Engine <select name="searchEngine" class="score" id="searchEngine"><option value="-1"></option>
                                         <option value="15">Slider</option>
                                         <option value="60">Slider and Loop</option>
@@ -47,7 +49,7 @@
                                                 <option value="30">Basket</option>
                                                 <option value="45">Basket and Model</option>
                                                 </select></li><!---->
-                    <li>Adapting to Changing Conditions <input type="checkbox" class="score" name="changing" id="changing"/> </li><!---->
+                    <li>Adapting to Changing Conditions <div id="changing"/></div> </li><!---->
                     <li>Apprenticeship<select name="apprenticeship" class="score" id="apprenticeship"><option value="-1"></option>
                                                     <option value="20">Model</option>
                                                     <option value="35">Touching Circle</option>
