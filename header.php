@@ -1,3 +1,8 @@
+<html>
+<head>
+<link rel="stylesheet" href="stylesheet.css" type="css"/>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+</head>
 <?php
 include('database.php');
 try{
