@@ -1,7 +1,9 @@
 <head>
     <script type="text/javascript">
-	var completed_array = {{completed}};
-	
+	var completed_array = [];
+	{% for comp in completed %}
+	    completed_array += {{comp}};
+	{%endfor%}	
 	
     </script>    
 </head>
