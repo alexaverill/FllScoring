@@ -163,6 +163,8 @@ function calculateScore(){
 	}else if (document.getElementById("engage").value ==-1) {
 		if (scoresContain("engaged")) {
 			//engaged was selected
+			place = returnIndex("engaged");
+			completed_array.splice(place,1);
 			score -=20;
 		}
 		number_rotations = 0;
