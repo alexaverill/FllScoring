@@ -3,18 +3,18 @@
     <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
     <script type="text/javascript">
 	var taskArray = [
-	  ["insert","Key Inserted"],
-	  ["inandloop","Key Inserted,Loop Gotten"],
-	  ["bulbdown","Bulb Face Down"],
-	  ["bulbup","Bulb Face Up"],
-	  ["slider","Slider Pushed"],
-	  ["sliderloop","Slider Pushed, Correct Loop Taken"],
-	  ["shot","Shot Taken"],
-	  ["goal","Goal Scored"],
-	  ["basket","Basket Gotten"],
-	  ["model","Model Assembled"],
-	  ["legoModel","Has a lego model"],
-	  ["incircle","Model Placed in Circle"]
+	  ["insert","Key Inserted","robotComp"],
+	  ["inandloop","Key Inserted,Loop Gotten","robotComp"],
+	  ["bulbdown","Bulb Face Down","outabox"],
+	  ["bulbup","Bulb Face Up","outabox"],
+	  ["slider","Slider Pushed","searchEngine"],
+	  ["sliderloop","Slider Pushed, Correct Loop Taken","searchEngine"],
+	  ["shot","Shot Taken","sports"],
+	  ["goal","Goal Scored","sports"],
+	  ["basket","Basket Gotten","reverse"],
+	  ["model","Model Assembled","reverse"],
+	  ["legoModel","Has a lego model","apprenticeship"],
+	  ["incircle","Model Placed in Circle","apprenticeship"]
 	];
 	function determineSelect(input) {
 	    for(var x = 0; x<taskArray.length;x++){
@@ -73,7 +73,7 @@
 	    var stringId = completed_array[x];
 	    console.log(taskLocation);
 	    if ( taskLocation > 0 ) {
-		document.getElementById(stringId).innerHTML = taskArray[taskLocation][1];
+		document.getElementById(taskArray[taskLocation][2]).innerHTML = taskArray[taskLocation][1];
 	    }else{
 		document.getElementById(stringId).innerHTML = "Task Completed";
 	    }
