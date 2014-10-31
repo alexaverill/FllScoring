@@ -105,12 +105,12 @@ function calculateScore(){
 		var nameOne = multiCheckArray[z][1][0];   //name for completed array;
 		var scoreTwo = multiCheckArray[z][3]; //second score value
 		var nameTwo = multiCheckArray[z][1][1]; //name for completed task
-		if(selectOption == scoreOne &&  !scoresContain(nameOne)){
+		if(selectOption == scoreOne &&  !scoresContain( nameOne )){
 			//if the selected value is the first score option, and the first score option hasnt already been input
 			if (scoresContain( nameTwo )) {
 				//if name two was selected earlier we need to fix the score so we dont get too high
 				place = returnIndex( nameTwo );
-				completed_array.splice(place); //remove the name from the completed array so we can keep track of the selected
+				completed_array.splice(place,1); //remove the name from the completed array so we can keep track of the selected
 				score -= scoreTwo; //fix score
 			}
 			score +=scoreOne;
@@ -128,22 +128,23 @@ function calculateScore(){
 			score -= scoreOne; //remove score one
 			
 			place = returnIndex( nameOne );
-			completed_array.splice(place); //remove name one from completed_array[]
+			completed_array.splice(place,1); //remove name one from completed_array[]
 			//add score two
 			score += scoreTwo;
-			completed_array.push(multiCheckArray[z][1][1]);
+			completed_array.push( nameTwo );
 		}else if (selectOption == -1 ){
 			//if the select is returned to the empty option
 			if (scoresContain( nameOne )) {
 				place = returnIndex( nameOne);
-				completed_array.splice(place);
+				completed_array.splice(place,1);
 				score -= scoreOne;
 			}else if (scoresContain( nameTwo )){
 				place = returnIndex( nameTwo );
-				completed_array.splice(place);
+				completed_array.splice(place,1);
 				score -= scoreTwo;
 			}
 		}
+		console.log(completed_array);
 	}
 	
 	//engaged tasks
@@ -180,6 +181,14 @@ function calculateScore(){
 		
 		
 	}
+	/**************TODO*********************************
+	 *
+	 *	Project Based Learning!
+	 *
+	 *
+	 *
+	 *
+	 */
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
 function save(){
@@ -196,7 +205,7 @@ function save(){
 		url: "save.php",
 		data: { teamName:name , score: score, tasksDone:completed_array }
 		});
-	 
+	 alert("Team Data Saved, and Submitted!")
 }
 $(document).on("change",'.score', function() {
 		calculateScore();
