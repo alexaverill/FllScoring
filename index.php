@@ -186,19 +186,26 @@ function calculateScore(){
 			numberDifference = (document.getElementById("pbl").value - loopsCounted);
 			console.log(numberDifference);
 			if ( numberDifference >0 ) {
-				score -= 10 * numberDifference;
-				score -=10;
-				loopsCounted = document.getElementById("pbl").value;
-			}else if (numberDifference < 0) {
 				score += 10 * Math.abs(numberDifference);
 				if (!scoresContain("pbl")) {
 					score+=10;
 					completed_array.push("pbl");
 				}
 				loopsCounted = document.getElementById("pbl").value;
+			}else if (numberDifference < 0) {
+				score -= 10 * Math.abs(numberDifference);
+				if (!scoresContain("pbl")) {
+					score-=10;
+					place = returnIndex("pbl");
+					completed_array.splice(place,1);
+				}
+				loopsCounted = document.getElementById("pbl").value;
 			}
 		
 		
+	}else if (document.getElementById("pbl").value < 0 && scoresContain("pbl")) {
+		score -=loopsCounted *10;
+		score -=10;
 	}
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
@@ -279,7 +286,7 @@ $(document).on("change",'.score', function() {
                     <?php for($x=0;$x<=58;$x++){echo "<option value=$x>$x</option>";}?>
                     </select></li>
                     <li>Project Based Learning <select name="pbl" class="score" id="pbl"><option value="-1"></option>
-                    <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
+                    <?php for($x=1;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
                     </select></li>
                     <li>Penalty Points<select name="penalty" class="score" id="penalty"><option value="-1"></option>
                     <?php for($x=0;$x<=8;$x++){echo "<option value=$x>$x</option>";}?>
