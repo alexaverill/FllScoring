@@ -208,6 +208,8 @@ function calculateScore(){
 	}else if (document.getElementById("pbl").value < 0 && scoresContain("pbl")) {
 		score -=loopsCounted *10;
 		score -=10;
+		place = returnIndex("pbl");
+		completed_array.splice(place,1);
 	}
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
