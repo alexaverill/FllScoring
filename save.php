@@ -1,5 +1,5 @@
 <?php
-require('../database.php');
+require('database.php');
 try{
     $dbh= new PDO('mysql:host='.$data_host.';dbname='.$name_database,$data_username,$data_password);
 }catch(PDOException $e){
@@ -7,7 +7,7 @@ try{
 }
 $teamName = $_POST['teamName'];
 $score = $_POST['score'];
-$completed = $_POST['tasksDone']
+$completed = $_POST['tasksDone'];
 $sql = "SELECT * FROM scoring WHERE teamName=?";
 $check = $dbh->prepare($sql);
 $check->execute(array($teamName));

@@ -25,6 +25,8 @@ var completed_array = [];
 var number_rotations =0;
 var number_penalties = 0;
 var penaltiesCounted = 0;
+var numberLoops = 0;
+var numberLoopsCounted = 0;
 var time = 120; //time in seconds;
 var interval;
 function timer(){
