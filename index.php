@@ -191,7 +191,7 @@ function calculateScore(){
 				loopsCounted = document.getElementById("pbl").value;
 			}else if (numberDifference < 0) {
 				score += 10 * Math.abs(numberDifference);
-				if (!scoreContain("pbl")) {
+				if (!scoresContain("pbl")) {
 					score+=10;
 					completed_array.push("pbl");
 				}
