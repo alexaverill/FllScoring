@@ -7,7 +7,7 @@ function returnTeamResults(){
     $get->execute();
     return $get->fetchAll();
 }
-return individualResults($id){
+function individualResults($id){
     global $dbh;
     //$sql = "SELECT * FROM scoring";
     $sql = "SELECT * FROM `scoring` WHERE id=?";
