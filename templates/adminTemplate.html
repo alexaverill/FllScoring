@@ -11,3 +11,12 @@
         <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
     </div>
     <div id="mainContent">
+	<h2>Results:</h2>
+	<table>
+	    <tr><th>Team Name</th><th>Score</th><th>Tasks Completed</th></tr>
+	    {%for team in TeamList %}
+	    <tr><td>{{team.teamName}}</td><td>{{team.score}}</td><td>{{team.tasksCompleted}}</td></tr>
+	    {%endfor%}
+	    
+	    
+	</table>
