@@ -29,7 +29,8 @@
 	    completed_array.push("{{comp}}");
 	{%endfor%}	
 	for(var x = 0; x<completed_array.length;x++){
-	    taskLocation = determineSelect(completed_array[x])
+	    taskLocation = determineSelect(completed_array[x]);
+	    console.log(taskLocation);
 	    if ( taskLocation > 0 ) {
 		document.getElementById(completed_array[x]).innerHTML = taskArray[taskLocation][1];
 	    }else{
