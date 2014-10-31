@@ -149,7 +149,6 @@ function calculateScore(){
 		
 		
 	}
-	console.log(number_rotations);
 	document.getElementById("score").innerHTML = score +"/"+max_score;
 }
 function save(){
@@ -161,6 +160,11 @@ function save(){
 			score += percentBack;
 		}
 	}
+	 $.ajax({
+		type: "POST",
+		url: "save.php",
+		data: { teamName:name , score: score, tasksDone:completed_array }
+		});
 }
 $(document).on("change",'.score', function() {
 		calculateScore();
