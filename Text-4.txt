@@ -1,0 +1,5 @@
+<?php
+function returnTeamResults(){
+    //open database
+    $sql = "SELECT * FROM scoring ORDER BY score ASC";
+}

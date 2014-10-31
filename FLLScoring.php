@@ -211,6 +211,7 @@ $(document).on("change",'.score', function() {
 		calculateScore();
 	 });
 </script>
+</head>
 <body>
     <div id="headerBar">
         <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button>
