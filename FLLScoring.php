@@ -106,8 +106,11 @@ function calculateScore(){
 			//console.log(multiCheckArray[z][1][0]);
 			completed_array.push(multiCheckArray[z][1][0]);
 		}else if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][3] && !scoresContain(multiCheckArray[z][1][0])){ //just insert and loop has been selected 
-			score += multiCheckArray[z][3];
-			completed_array.push(multiCheckArray[z][1][1]);
+			if (!scoresContain(multiCheckArray[z][1][1])) {
+				score += multiCheckArray[z][3];
+				completed_array.push(multiCheckArray[z][1][1]);
+			}
+			
 		}else if(document.getElementById(multiCheckArray[z][0]).value == multiCheckArray[z][3] && scoresContain(multiCheckArray[z][1][0])){ //insert and loop has been selected after insert has been selected
 			//remove the insert score 
 			score -= multiCheckArray[z][2];
@@ -127,6 +130,7 @@ function calculateScore(){
 				score -= multiCheckArray[z][3];
 			}
 		}
+		console.log(completed_array);
 	}
 	
 	
@@ -214,7 +218,7 @@ $(document).on("change",'.score', function() {
                                                 <option value="45">Basket and Model</option>
                                                 </select></li><!---->
                     <li>Adapting to Changing Conditions <input type="checkbox" class="score" name="changing" id="changing"/> </li><!---->
-                    <li>Apprenticeship<select name="apprenticeship" id="apprenticeship"><option value="-1"></option>
+                    <li>Apprenticeship<select name="apprenticeship" class="score" id="apprenticeship"><option value="-1"></option>
                                                     <option value="20">Model</option>
                                                     <option value="35">Touching Circle</option>
                                                     </select> </li>
