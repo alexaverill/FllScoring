@@ -1,6 +1,3 @@
-<?php
-include("header.php");
-?>
 <html>
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
@@ -261,9 +258,7 @@ $(document).on("change",'.score', function() {
             <h3>Tasks:</h3>
         </div>
             <div id ="tasklist">
-		<div id="teamName">Team Name: <select id="teamNameIn"><option value=""></option>
-						<?php echo returnTeamSelect();?>
-						</select>
+		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/>
 			Round: <select name="round" id="round"><option value="-1"></option><?php for($x=1; $x<4;$x++){echo "<option value=$x>$x</option>";{?></select>
 		
 		</div>
