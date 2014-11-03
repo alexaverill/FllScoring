@@ -1,4 +1,6 @@
-<?php include("header.php");?>
+<?php
+include("header.php");
+?>
 <html>
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>

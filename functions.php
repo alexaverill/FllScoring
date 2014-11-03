@@ -28,14 +28,6 @@ function returnTeamCell(){
     }
     return $html;
 }
-function individualResults($id){
-    global $dbh;
-    //$sql = "SELECT * FROM scoring";
-    $sql = "SELECT * FROM `scoring` WHERE id=?";
-    $get = $dbh->prepare($sql);
-    $get->execute(array($id));
-    return $get->fetchAll();
-}
 function returnTeamSelect(){
     global $dbh;
     $sql = "SELECT * FROM `teams`";
