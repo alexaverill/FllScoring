@@ -20,8 +20,8 @@ function returnTeamCell(){
         echo $team['id'];
         var_dump($team);
         $html.='<tr><td><a href=results.php?id="$team[\'id\']">$team[\'teamName\']</a></td>';
-        $teamData = $getTeam->execute(array($team['id']));
-        foreach($teamData->fetchAll() as $teamRow){
+        $getTeam->execute(array($team['id']));
+        foreach($getTeam->fetchAll() as $teamRow){
             $html .='<td>$teamRow[\'score\']</td>';
         }
         $html.="</tr>";
