@@ -6,7 +6,7 @@ $completed = json_decode($individualResults[0]['tasksCompleted']);
 $rotations = $individualResults[0]['numberRotations'];
 $numberLoops = $individualResults[0]['numberLoops'];
 $penalties = $individualResults[0]['numberPenalties'];
-$team = $individualResults[0]['teamName'];
+$team = getTeamName($individualResults[0]['teamName']);
 $score = $individualResults[0]['score'];
 echo $twig->render('resultsTemplate.html',array('teamResults'=>$individualResults,'score'=>$score,'completed'=>$completed,
                                                 'rotations'=>$rotations,'loops'=>$numberLoops,'penalties'=>$penalties,'teamName'=>$team));

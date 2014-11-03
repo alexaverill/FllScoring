@@ -34,6 +34,14 @@ function individualResults($id){
     $get->execute(array($id));
     return $get->fetchAll();
 }
+function getTeamName($id){
+    global $dbh;
+    $sql = "SELECT * FROM `teams` WHERE id=?";
+    $get = $dbh->prepare($sql);
+    $get->execute(array($id));
+    $get = $get->fetchAll();
+    return $get[0]['teamName'];
+}
 function returnTeamSelect(){
     global $dbh;
     $sql = "SELECT * FROM `teams`";
