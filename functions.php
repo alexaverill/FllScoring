@@ -19,10 +19,10 @@ function returnTeamCell(){
     foreach($get->fetchAll() as $team){
         echo $team['id'];
         var_dump($team);
-        $html.='<tr><td><a href=results.php?id="$team[\'id\']">$team[\'teamName\']</a></td>';
+        $html.='<tr><td><a href=results.php?id="'.$team['id'].'">'.$team['teamName'].'</a></td>';
         $getTeam->execute(array($team['id']));
         foreach($getTeam->fetchAll() as $teamRow){
-            $html .='<td>$teamRow[\'score\']</td>';
+            $html .='<td>'.$teamRow['score'].'</td>';
         }
         $html.="</tr>";
     }
@@ -43,7 +43,7 @@ function returnTeamSelect(){
     $get->execute();
     $html ='';
     foreach($get->fetchAll() as $team){
-        $html .='<option value="$team[\'id\']">$team[\'teamName\']</option>';
+        $html .='<option value="'.$team['id'].'">'.$team['teamName'].'</option>';
     }
     return $html;
 }
