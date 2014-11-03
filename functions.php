@@ -7,6 +7,25 @@ function returnTeamResults(){
     $get->execute();
     return $get->fetchAll();
 }
+function returnTeamCell(){
+        global $dbh;
+    $sql = "SELECT * FROM `teams`";
+    $get = $dbh->prepare($sql);
+    $get->execute();
+    $html ='';
+    
+    $teamsql = "SELECT * FROM `scoring` WHERE teamName=? ORDER BY score DESC";
+    $getTeam = $dbh->prepare($teamsql);
+    foreach($get->fetchAll() as $team){
+        $html.="<tr><td><a href=\"results.php?id=$team['id']\">$team['teamName']</a></td>";
+        $teamData = $getTeam($team['id']);
+        foreach($teamData->fetchAll() as $teamRow){
+            $html .="<td>$teamRow['score']</td>";
+        }
+        $html.="</tr>";
+    }
+    return $html;
+}
 function individualResults($id){
     global $dbh;
     //$sql = "SELECT * FROM scoring";
