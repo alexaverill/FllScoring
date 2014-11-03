@@ -215,14 +215,19 @@ function calculateScore(){
 }
 function save(){
 	var name=document.getElementById("teamNameIn").value;
+	var round = document.getElementById("round").value;
 	if (name == "") {
 		alert("Please Enter a Team Name!");
+		return;
+	}
+	if (round == -1) {
+		alert("Please Select the Round Number!");
 		return;
 	}
 	if (scoresContain("engaged")) {
 		if (number_rotations>0) {
 			tempScore = score - 20;
-			percentBack = tempScore * (number_rotations*.01);
+			percentBack = tempScore * (number_rotations*.1);
 			score += percentBack;
 		}
 	}
