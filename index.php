@@ -237,7 +237,7 @@ function save(){
 		type: "POST",
 		url: "save.php",
 		data: { teamName:name , score: score, tasksDone: completedString,totalNumber:totalNumber,
-		numPenalties:number_penalties,numRotations:number_rotations, numberLoops: loopsCounted }
+		numPenalties:number_penalties,numRotations:number_rotations, numberLoops: loopsCounted,round:round }
 		});
 	 alert("Team Data Saved, and Submitted!")
 }
