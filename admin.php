@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-$teamResults = returnTeamResults();
+//$teamResults = returnTeamResults();
 ?>
 <html>
 <head>

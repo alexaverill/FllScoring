@@ -17,7 +17,7 @@ function returnTeamCell(){
     $teamsql = "SELECT * FROM `scoring` WHERE teamName=? ORDER BY score DESC";
     $getTeam = $dbh->prepare($teamsql);
     foreach($get->fetchAll() as $team){
-        $html.="<tr><td><a href=\"results.php?id=$team['id']\">$team['teamName']</a></td>";
+        $html.="<tr><td><a href=results.php?id=$team['id']>$team['teamName']</a></td>";
         $teamData = $getTeam($team['id']);
         foreach($teamData->fetchAll() as $teamRow){
             $html .="<td>$teamRow['score']</td>";
