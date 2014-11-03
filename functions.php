@@ -47,3 +47,4 @@ function returnTeamSelect(){
     }
     return $html;
 }
+?>
