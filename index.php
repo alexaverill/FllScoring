@@ -253,7 +253,10 @@ $(document).on("change",'.score', function() {
             <h3>Tasks:</h3>
         </div>
             <div id ="tasklist">
-		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/></div>
+		<div id="teamName">Team Name: <input type="text" id="teamNameIn"/>
+			Round: <select name="round" id="round"><option value="-1"></option><?php for($x=1; $x<4;$x++){echo "<option value=$x>$x</option>";{?></select>
+		
+		</div>
                     <ul>
 
                     <li>Opening Door:<input type="checkbox" class="score" name="doors" id="doors"/> </li> <!---->
