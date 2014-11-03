@@ -57,7 +57,7 @@ ul >li > div{
 ul >li > span{
     float:right;
 }
-ul > select{
+ul > li> select{
     size: 100px;
     float:right;
 }
