@@ -20,7 +20,7 @@ function returnTeamCell(){
         $html.='<tr><td><a href=results.php?id="$team[\'id\']">$team[\'teamName\']</a></td>';
         $teamData = $getTeam($team['id']);
         foreach($teamData->fetchAll() as $teamRow){
-            $html .="<td>$teamRow['score']</td>";
+            $html .='<td>$teamRow[\'score\']</td>';
         }
         $html.="</tr>";
     }
