@@ -17,16 +17,22 @@ function returnTeamCell(){
     $teamsql = "SELECT * FROM `scoring` WHERE teamName=? ORDER BY score DESC";
     $getTeam = $dbh->prepare($teamsql);
     foreach($get->fetchAll() as $team){
-        echo $team['id'];
-        var_dump($team);
-        $html.='<tr><td><a href=results.php?id="'.$team['id'].'">'.$team['teamName'].'</a></td>';
+        $html.='<tr><td>'.$team['teamName'].'</a></td>';
         $getTeam->execute(array($team['id']));
         foreach($getTeam->fetchAll() as $teamRow){
-            $html .='<td>'.$teamRow['score'].'</td>';
+            $html .='<td><a href=results.php?id="'.$teamRow['id'].'">'.$teamRow['score'].'</a></td>';
         }
         $html.="</tr>";
     }
     return $html;
+}
+function individualResults($id){
+    global $dbh;
+    //$sql = "SELECT * FROM scoring";
+    $sql = "SELECT * FROM `scoring` WHERE id=?";
+    $get = $dbh->prepare($sql);
+    $get->execute(array($id));
+    return $get->fetchAll();
 }
 function returnTeamSelect(){
     global $dbh;
