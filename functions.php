@@ -41,7 +41,7 @@ function returnTeamSelect(){
     $get->execute();
     $html ='';
     foreach($get->fetchAll() as $team){
-        $html .="<option value=$team['id']>$team['teamName']</option>";
+        $html .='<option value="$team[\'id\']">$team[\'teamName\']</option>';
     }
     return $html;
 }
