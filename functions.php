@@ -7,6 +7,18 @@ function returnTeamResults(){
     $get->execute();
     return $get->fetchAll();
 }
+function topFour(){
+    global $dbh;
+    //$sql = "SELECT * FROM scoring";
+    $sql = "SELECT * FROM `scoring` ORDER BY `score` DESC";
+    $get = $dbh->prepare($sql);
+    $get->execute();
+    $teams = $get->fetchAll();
+    var_dump($teams);
+    for($x =0; $x<count($teams);$x++){
+        
+    }
+}
 function returnTeamCell(){
         global $dbh;
     $sql = "SELECT * FROM `teams`";

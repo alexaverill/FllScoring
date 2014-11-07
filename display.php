@@ -17,6 +17,3 @@ include("header.php");
 	    <tr><th>Team Name</th><th>Score 1</th><th>Score 2 </th><th>Score 3</th><th>Semifinals</th><th>Finals</th>
                 <?php echo returnTeamCell();?>
                 </table>
-        
-        <h2>Top Four:</h2>
-        <?php echo topFour();?>
