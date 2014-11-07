@@ -17,7 +17,7 @@ function topFour(){
     //ve var_dump($teams);
     for($x =0; $x<count($teams);$x++){
         echo '<h3>'.getTeamName($teams[$x]['teamName']).' '.$teams[$x]['score'].'</h3>';
-        if($teams[$x]['teamName']==$teams[$x+1]['teamName']){
+        while($teams[$x]['teamName']==$teams[$x+1]['teamName']){
             $x++;
         }
     }

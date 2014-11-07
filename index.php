@@ -265,7 +265,8 @@ $(document).on("change",'.score', function() {
 						<?php echo returnTeamSelect();?>
 						</select>
 			Round: <select name="round" id="round"><option value="-1"></option>
-			<?php for($x=1; $x<4;$x++){echo "<option value=$x>$x</option>";}?></select>
+			<?php for($x=1; $x<4;$x++){echo "<option value=$x>$x</option>";}?><option value="4">SemiFinals</option>
+			<option value="5">Finals</option></select>
 		
 		</div>
                     <ul>
