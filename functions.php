@@ -14,11 +14,11 @@ function topFour(){
     $get = $dbh->prepare($sql);
     $get->execute();
     $teams = $get->fetchAll();
-    //var_dump($teams);
+    //ve var_dump($teams);
     for($x =0; $x<count($teams);$x++){
         echo '<h3>'.$teams[$x]['teamName'].' '.$teams[$x]['score'].'</h3>';
         if($teams[$x]['teamName']==$teams[$x+1]){
-            $x++
+            $x++;
         }
     }
 }
