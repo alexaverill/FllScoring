@@ -50,8 +50,8 @@ function callTimer() {
 }
 function resetTimer(){
 	interval = clearInterval(interval);
-	time = 120;
-	document.getElementById("time").innerHTML ="2:00";
+	time = 150;
+	document.getElementById("time").innerHTML ="2:30";
 }
 function scoresContain(input){
 	//determine if a task has been completed/ is in the completed array.
@@ -251,7 +251,7 @@ $(document).on("change",'.score', function() {
 </head>
 <body>
     <div id="headerBar">
-        <div id="timer"><h3>Time: <span id="time">2:00</span><button onclick="callTimer();">Start Time</button>
+        <div id="timer"><h3>Time: <span id="time">2:30</span><button onclick="callTimer();">Start Time</button>
 	<button onclick="resetTimer();">Reset Time</button></h3></div>
 	
         <div id="scoreContainer"><h3>Score: <span id="score">0/857</span></h3></div>
