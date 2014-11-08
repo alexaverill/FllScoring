@@ -30,7 +30,7 @@ var number_penalties = 0;
 var penaltiesCounted = 0;
 var numberLoops = 0;	//Project based learning	
 var loopsCounted = 0;
-var time = 120; //time in seconds;
+var time = 150; //time in seconds;
 var interval;
 function timer(){
 	time  -= 1; //remove a second
